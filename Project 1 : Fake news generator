@@ -1,0 +1,14 @@
+ import random
+name= ['Imran Khan ', 'Nawaz Sharif ', 'Shahbaz Sharif ', 'Maryam Nawaz ', 'Zardari ']
+what_they_do=['taking bath in ','taking cofee in ', 'taking candy in ' ]
+location= ['Lawn', 'Zoo','Playground', 'Stadium' ]
+while (True):
+    chosen_name = random.choice(name)
+    chosen_work= random.choice(what_they_do)
+    chosen_location= random.choice(location)
+    concatinate= chosen_name+chosen_work+chosen_location
+    print(concatinate)
+    user= input('Are you want to generate next: ')
+    if (user.strip().lower()=='not'):
+        break
+print ('Thanks!')
