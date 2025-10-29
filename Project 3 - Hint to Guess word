@@ -1,0 +1,36 @@
+import random
+easy= ['hello', 'bye', 'go', 'meet', 'let']
+medium= ['apple', 'banana', 'grapes', 'almond', 'mango']
+hard= ['elepahant', 'chicken', 'lion', 'tiger', 'train', 'bus', 'car']
+print ('Welcome! ')
+print ('Choose the difficulty level, easy, medium, hard')
+
+level= input('What your difficulty level: ').lower()
+if level == 'easy':
+    word= random.choice(easy)
+elif level=='medium':
+    word = random.choice(medium)
+elif level== 'hard':
+    word = random.choice(hard)
+else:
+    print ('Inavlid choose level, by default easy level')
+    word= random.choice(easy)    
+attempts = 0
+print (f'\nGuess the word here, it has {len(word)} letter.')
+while True:
+    guess = input('What is your word= ')
+    attempts+=1
+    if guess==word:
+        print (f'Congrats! You guess it in {attempts} attempts')
+        break
+    hint=''
+    for i in range(len(word)):
+        if i<len(guess):
+            if guess[i]==word[i]:
+                hint+=guess[i]
+            else: 
+                hint+='_'
+        else:
+            hint+='_'
+    print ('Hint: ', hint)        
+print ('Bye!')        
