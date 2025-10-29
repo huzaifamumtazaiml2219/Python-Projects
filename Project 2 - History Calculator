@@ -1,0 +1,56 @@
+History= 'history.txt'
+def show():
+    file = open('history.txt', 'r')
+    lines= file.readlines()
+    if len(lines)==0:
+        print ('No Data Found')
+    else:        
+        for line in reversed(lines):
+            print(line.strip())
+    file.close()
+def clear_history():
+    file=open('history.txt', 'w')
+    file.close()
+def save(equation, result):
+    file= open ('history.txt', 'a')
+    file.write(equation+'='+str(result)+'\n')
+    file.close()
+def calculate(user_input):
+    parts= user_input.split()
+    if len(parts)!=3:
+        print ('Invalid input, make sure you have two number and operator')
+        return
+    num1=float(parts[0])
+    op=parts[1]
+    num2=float(parts[2])
+    if op=='+':
+        result= num1+num2
+    elif op=='-':
+        result= num1-num2
+    elif op=='*':
+        result= num1*num2
+    elif op=='/':
+        if num2==0:
+            print ('You put 0, 0 is indivisible')
+            return
+        else:
+            result= num1/num2
+    else:
+        print ('Invalid You inputs, like must have to be the operator like +,-,*,/')
+    if int(result)==result:
+        result=int(result)  
+    print ('Result: ', result)      
+    save(user_input, result)    
+def main():
+    while True:
+        user_input=input('Enter the numbers like num1, op, num2 to find out result: ')
+        if user_input=='exit':
+            print('Goodbye!')
+            break
+        elif user_input=='history':
+            show()
+        elif user_input=='clear':
+            clear_history()
+        else:
+            calculate(user_input)
+main()     
