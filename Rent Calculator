@@ -1,0 +1,12 @@
+print ('Welcome to calculate each Partner Rent Calculator')
+Rent= int(input('What is your rent of hostel: '))
+Food_price= int(input('What is your food cost: '))
+Electricity= int(input('How many units you consume each month: '))
+Price_per_unit= int(input('What is your price of unit: '))
+Elec_bill=Electricity*Price_per_unit
+Total= Rent+Food_price+Elec_bill
+print (f'You total spending each months is {Total}.')
+members= int (input('How many members you are: '))
+Divided_to_each= Total/members
+print (f'Ok! You have to pay {Divided_to_each} to each member in your hostel room.')
+print ('Good Bye!')
