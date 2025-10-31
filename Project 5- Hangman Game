@@ -1,0 +1,32 @@
+import random
+words = ['apple', 'banana', 'cat', 'bomb', 'bat', 'car']
+secret= random.choice(words)
+display= '_'*len(secret)
+attempts= 6
+guessed_letters= []
+print ("Let's play Hangman game. ")
+print ('Guess any letter.')
+while attempts>0 and '_' in display:
+    print ('Word: ',' '.join(display))
+    print ('Attempts left : ', attempts)
+    print ('Guessed letters: ',', '.join(guessed_letters))
+    guess= input('Enter your one letter : ').lower()
+    if len(guess)!=1 or not guess.isalpha():
+        print ('Not valid, again guess from a-z.')
+        continue
+    if guess in guessed_letters:
+        print ('This letter already in word.')
+        continue
+    guessed_letters.append(guess)
+    if guess in secret:
+        print ('Good Guess!')
+        for i in range(len(secret)):
+            if secret[i]==guess:
+                display=display[:i]+guess+display[i+1:]
+    else:
+        print ('Wrong Guess')
+        attempts-=1
+if '_' not in display:
+    print ('Congratulations, You won! the word is :', secret)
+else:
+    print ('You lose! word is = ', secret)        
