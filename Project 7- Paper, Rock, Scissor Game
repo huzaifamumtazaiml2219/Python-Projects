@@ -1,0 +1,26 @@
+import random
+print ('Hi! Welcome to the Rock, Paper, Sciesor Game')
+print ('Rules:')
+print ('Rock beats Scissors.')
+print('Paper beats Rock.')
+print ('Scissors beats Paper.')
+print ('Same choice → Draw.')
+while True:
+    things= ['paper', 'rock', 'sciessor']
+    choice= input('Choose one from Paper, Rock, Sciessor= ').strip().lower()
+    computer= random.choice(things)
+    print (f'You choose {choice}, and computer choose {computer}')
+    if choice=='paper' and computer=='rock':
+        print ('You win!')
+    elif choice=='rock' and computer=='sciessor':
+        print ('You win!')
+    elif choice =='sciessor' and computer=='paper':
+        print ('You win!')
+    elif choice==computer:
+        print ('Match is tie!')
+    else:
+        print ('Computer win!')
+    ans = input('Do you want to play Again? Yes/No: ').strip().lower()
+    if ans == 'no':
+        break    
+print ('Bye!')                        
