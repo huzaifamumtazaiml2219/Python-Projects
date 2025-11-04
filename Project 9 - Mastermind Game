@@ -1,0 +1,29 @@
+import random
+def find():
+    content_length= 4
+    max_attempts= 10
+    secret_code= ''.join(str(random.randint(0,9)) for _ in range(content_length))
+    print ('Welcome to Mastermind Game.')
+    print ("Let's play!")
+    attempts= 0
+    while attempts<max_attempts:
+        guess= input('Enter 4 digits number= ')
+        if len(guess)!=content_length or not guess.isdigit():
+            print (f'Invalid input, plz take the correct input, choose digit from 0-9 and 4 digits.')
+            continue
+        position= 0
+        digit= 0
+        for i in range (content_length):
+            if guess[i]==secret_code[i]:
+                position+=1
+            elif guess[i] in secret_code:
+                digit+=1
+        if guess==secret_code:
+            print ('Congratulation you won! ')
+            print (f'Secret code is {secret_code}')
+        else:
+            print (f"{position} position correct, {digit} digits in wrong places.")
+            attempts+=1
+    else:        
+        print (f'You lose, because you are over attempts.')        
+find()                    
