@@ -1,0 +1,5 @@
+email_input= str(input('Give your Email: '))
+if '@' not in email_input or '.' not in email_input:
+    print ('Email Invalid, please give the correct email.')
+else:
+    print ('Email Valid, your verification confirmed.')    
