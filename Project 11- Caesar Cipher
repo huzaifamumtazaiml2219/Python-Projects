@@ -1,0 +1,27 @@
+class main:
+    def __init__(self, key):
+        self.key=key
+    def take_input(self):
+        while True:
+            alpha= str(input('What is the letter to decrypt: '))
+            if alpha.isalpha():
+                alpha=alpha.lower()
+                self.alpha= alpha
+                break
+            else:
+                print('Invalid input, make the correct one.')     
+
+    def encrypt(self):
+        output = ''
+        for char in self.alpha:
+            for k, v in self.key.items():
+                if k==char:
+                    output+=v
+                else:
+                    continue
+        return (output)        
+if __name__ == "__main__":
+    key ={"a": "d", "b": "e", "c": "f", "d": "g", "e": "h", "f": "i", "g": "j", "h": "k", "i": "l", "j": "m", "k": "n", "l": "o", "m": "p", "n": "q", "o": "r", "p": "s", "q": "t", "r": "u", "s": "v", "t": "w", "u": "x", "v": "y", "w": "z", "x": "a", "y": "b", "z": "c"}
+    m=main(key)
+    m.take_input()
+    print ('Encrypted aplhabets are : ', m.encrypt())  
