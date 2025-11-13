@@ -1,0 +1,45 @@
+import collections
+import string
+
+def read_lines_gen(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            for line in file:
+                yield line
+    except FileNotFoundError:
+        print(f"Error: The file '{file_path}' was not found.")
+        return
+    except Exception as e:
+        print(f"Error reading file: {e}")
+        return
+
+def get_top_10_words(file_path):
+    word_counts = collections.Counter()
+    lines_generator = read_lines_gen(file_path)
+    for line in lines_generator:
+        translator = str.maketrans('', '', string.punctuation)
+        cleaned_line = line.translate(translator)
+        words = cleaned_line.lower().split()
+        word_counts.update(words)
+    return word_counts.most_common(10)
+
+if __name__ == "__main__":
+    file_name = "file.txt"
+    try:
+        with open(file_name, 'w') as f:
+            f.write("This is a test line. This test is simple.\n")
+            f.write("We use generators. Generators are memory efficient.\n")
+            f.write("Python is great. Data Science uses Python.\n")
+            f.write("Test, test, test! This is the final test line.\n")
+            f.write("Count words efficiently. Use collections. Use Python.\n")
+    except Exception as e:
+        print(f"Error creating dummy file: {e}")
+        exit()
+
+    top_10 = get_top_10_words(file_name)
+    print(f"--- Top 10 Most Frequent Words ---")
+    if top_10:
+        for i, (word, count) in enumerate(top_10, 1):
+            print(f"{i}. '{word}': {count} times")
+    else:
+        print("No words found or file was empty/not found.")
