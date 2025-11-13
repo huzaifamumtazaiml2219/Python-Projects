@@ -1,0 +1,12 @@
+def age_category(ages):
+    categories= [
+        'Child' if age<=10 else
+        'Teen' if age<=17 else
+        'Adult'
+    for age in ages    
+    ]
+    return categories
+ages = [5, 12, 16, 19, 20, 35, 8]
+age_category= age_category(ages)
+print(f"Original Ages: {ages}")
+print(f"Categories: {age_category}")
