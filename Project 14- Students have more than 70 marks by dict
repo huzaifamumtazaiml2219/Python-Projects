@@ -1,0 +1,16 @@
+def check(student_scores: dict[str, list[int]]) -> dict[str, list[int]]:
+    passing_students = {
+        name: scores 
+        for name, scores in student_scores.items() 
+        if (sum(scores) / len(scores)) >= 70
+    }
+    return passing_students
+student={
+    "Alice": [85, 90, 92],
+    "Bob": [60, 65, 55],
+    "Charlie": [70, 70, 70],
+    "David": [100, 90, 15]
+}
+passed= check(student)
+print(f'All students are {list(student.keys())}') 
+print (f'{passed}')
