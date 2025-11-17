@@ -1,0 +1,7 @@
+def found(tuple1: list[tuple[str, int]]):
+    sort_list= sorted(tuple1, key= lambda item: item[1])
+    return sort_list
+items = [('A', 5), ('B', 1), ('C', 9), ('D', 3)]
+sorted_items = found(items)
+print(f"Original: {items}")
+print(f"Sorted:   {sorted_items}")
