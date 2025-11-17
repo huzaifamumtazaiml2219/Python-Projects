@@ -1,0 +1,12 @@
+def find(file_a: list[int], file_b: [int]):
+    set_a= set(file_a)
+    set_b= set(file_b)
+    common_ids = set_a.intersection(set_b)
+    only_in_a = set_a.difference(set_b)
+    total_unique = set_a.union(set_b)
+    print(f"Common IDs (Intersection): {common_ids}")
+    print(f"Only in A (Difference):    {only_in_a}")
+    print(f"Total Unique (Union):      {total_unique}")
+users_source_1 = [101, 102, 103, 104, 102] 
+users_source_2 = [103, 104, 105, 106]
+find(users_source_1, users_source_2)
