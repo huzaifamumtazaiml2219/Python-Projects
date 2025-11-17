@@ -1,0 +1,17 @@
+import pandas as pd
+def input_csv_path(csv_path: str, json_path: str):
+    try:
+        df = pd.read_csv(csv_path)
+        df.to_json(json_path, orient='records', indent=4)
+        print(f"Successfully converted '{csv_path}' to '{json_path}'.")
+        
+    except FileNotFoundError:
+        print(f"Error: File '{csv_path}' not found.")
+dummy_data = {
+    "ID": [101, 102, 103],
+    "Name": ["Huzaifa", "Alice", "Bob"],
+    "Grade": ["A", "B+", "A-"]
+}
+df_test = pd.DataFrame(dummy_data)
+df_test.to_csv("pandas_test.csv", index=False)
+input_csv_path("pandas_test.csv", "pandas_output.json")
