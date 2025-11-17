@@ -1,0 +1,14 @@
+def find(emails: list[str]):
+    condition= lambda email: email.endswith(('.org', '.edu'))
+    fitered= list(filter(condition, emails))
+    return fitered
+emails= [
+    "john.doe@university.edu",
+    "jane.smith@company.com",
+    "contact@nonprofit.org",
+    "admin@website.net",
+    "researcher@lab.edu"
+]
+result = find(emails)
+print (f'Original List: {emails}')
+print (f'Filtered list : {result}')
