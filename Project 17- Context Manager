@@ -1,0 +1,18 @@
+class Context_Manager:
+    def __init__(self, file_name: str, mode:str):
+        self.file_name= file_name
+        self.mode= mode
+    def __enter__(self):
+        self.file= open (self.file_name, self.mode) 
+        return self.file
+    def __exit__(self, exc_type, exc_value, traceback):
+        if self.file:
+            self.file.close()   
+file_name = "test_context.txt"
+try:
+    with Context_Manager(file_name, 'w') as f:
+        f.write("Hello! This was written using a custom class.\n")
+        print(">> Writing to file inside the block.")
+except Exception as e:
+    print(f"Caught an error outside: {e}")
+print ('Done')  
